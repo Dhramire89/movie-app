@@ -1,14 +1,14 @@
-import { nowPlayingAction } from "@/core/actions/movies/now-playing.action";
-import React from "react";
-import { Text, View } from "react-native";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { Stack } from "expo-router";
 import "../global.css";
 
+const queryClient = new QueryClient();
+
 const RootLayout = () => {
-  nowPlayingAction();
   return (
-    <View>
-      <Text className="text-3xl pt-10 px-4">solo es una prueba</Text>
-    </View>
+    <QueryClientProvider client={queryClient}>
+      <Stack />
+    </QueryClientProvider>
   );
 };
 
