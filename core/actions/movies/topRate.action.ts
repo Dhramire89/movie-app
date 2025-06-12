@@ -2,9 +2,9 @@ import { MovieMapper } from "@/infrastructure/interfaces/mappers/movie.mapper";
 import { MovieDBMoviesResponse } from "@/infrastructure/interfaces/moviedb-response";
 import { movieApi } from "../api/movie-api";
 
-export const popularMoviesAction = async () => {
+export const topRateMoviesAction = async () => {
   try {
-    const { data } = await movieApi.get<MovieDBMoviesResponse>("/popular");
+    const { data } = await movieApi.get<MovieDBMoviesResponse>("/top_rated");
     //console.log("Peliculas actuales:", JSON.stringify(data, null, 2));// data es esl objeto a imprimir, null es el espacio de sangrado y 2 es el número de espacios de sangrado
     const movies = data.results.map(MovieMapper.fromTheMovieDBToMovie);
 
